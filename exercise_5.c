@@ -4,6 +4,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+// Normally, the memory is not shared between processes. However, in this case, 
+// to obtain the correct result we can use pipes to transfer data between
+// the 2 processes.
+
 int main() {
 	int n, sum = 0;
 	printf("n=");
