@@ -1,0 +1,22 @@
+"
+	int i, j, k;
+
+
+
+	i = fork();
+
+	if ((j = fork())) {
+
+		k = fork();
+
+	}
+
+	printf("%d %d %d %d %d", i, j, k, getpid(), getppid());"
+
+
+The program will create a process at the line "i=fork()". At that point, the actual program and a child process will exist.
+Then two new child processes will be spawned at the first line of the if statement. However, none of them will enter the if statement,
+because for every child process, fork() returns 0. Instead, the main process and the first created child will enter the if statement and create
+two more processes.
+
+Therefore, 6 processes will exist.
